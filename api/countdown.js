@@ -8,7 +8,7 @@ const router = express.Router();
 // Countdown Configuration
 const countdownConfig = {
   // Set your reveal date and time here
-  revealDate: new Date('2026-02-14T00:00:00'), // Valentine's Day 2026
+  revealDate: new Date('2026-02-17T00:00:00'), // February 17th, 2026
   
   // Force reveal for testing (bypasses countdown)
   forceReveal: process.env.FORCE_REVEAL === 'true' || false,
