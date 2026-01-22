@@ -1,23 +1,119 @@
-# Capstone II Backend
+# SKAIZ Backend - Countdown System
 
-## Getting Started
+Backend API for SKAIZ website countdown timer and portfolio system.
 
-This project uses Express.js to serve up an API server, and Sequelize to connect to a PostgreSQL database. It uses JWTs for authentication with username and password.
+## 🚀 Features
 
-You will also need to create the database: by default it is called `capstone-2`, but you are welcome to rename it in `database/db.js`
+- ✅ Countdown timer API
+- ✅ Admin endpoints for countdown management
+- ✅ Database integration
+- ✅ Socket.io support
+- ✅ User authentication
+- ✅ CORS configured
 
-After that, you can get started with these commands
+## 📦 Installation
+
+```bash
+npm install
+```
+
+## 🏃 Running Locally
+
+### Development
+```bash
+npm run start-dev
+```
+
+### Production
+```bash
+npm start
+```
+
+Server runs on `http://localhost:8080`
+
+## 🌐 API Endpoints
+
+### Public Endpoints
+
+- `GET /api/countdown` - Get countdown status
+- `GET /api/health` - Health check (if implemented)
+
+### Admin Endpoints (Require API Key)
+
+- `PUT /api/countdown/reveal-date` - Update reveal date
+- `PUT /api/countdown/force-reveal` - Toggle force reveal
+
+**Authentication:** Include `X-API-Key` header with your admin API key
+
+## ⚙️ Environment Variables
+
+Create a `.env` file:
+
+```bash
+PORT=8080
+NODE_ENV=development
+FRONTEND_URL=http://localhost:3000
+ADMIN_API_KEY=your-secret-key
+FORCE_REVEAL=false
+```
+
+## 📅 Configure Countdown
+
+Edit `api/countdown.js`:
+
+```javascript
+revealDate: new Date('2026-02-14T00:00:00'), // Your reveal date
+```
+
+## 🚀 Deployment
+
+See [RENDER_DEPLOYMENT.md](RENDER_DEPLOYMENT.md) for detailed deployment instructions.
+
+### Quick Deploy to Render
+
+1. Push to GitHub
+2. Connect to Render
+3. Set environment variables
+4. Deploy!
+
+## 📁 Project Structure
 
 ```
-npm install # 📦 To install the packages
-npm run seed # 🌱 To seed the database
-npm run start-dev # 🚀 To start the server in development mode
+Capstone-2-Backend/
+├── api/
+│   ├── index.js           # API router
+│   ├── countdown.js       # Countdown endpoints
+│   └── test-db.js         # Database test
+├── auth/
+│   └── index.js           # Authentication
+├── database/
+│   ├── db.js              # Database connection
+│   ├── seed.js            # Database seeding
+│   └── user.js            # User model
+├── public/
+│   ├── skaiz-world.png    # Countdown image
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
+├── app.js                 # Main application
+├── socket-server.js       # Socket.io server
+├── .env                   # Environment variables
+├── .gitignore
+├── package.json
+└── README.md
 ```
 
-This project runs in the Node.js runtime environment. We're not using Webpack here, but we are using a tool called nodemon, which re-runs our app whenever we save a file. You should see a message in the terminal telling you that the server is running on port 8080.
+## 🔐 Security
 
-When an error occurs on the backend (Express), you'll see a message in the terminal. When an error occurs on the frontend (React), you'll see that error in the browser.
+- API keys for admin endpoints
+- CORS configured for frontend only
+- Environment variables for sensitive data
+- Production/development modes
 
-## Deployment
+## 📝 License
 
-This project has a vercel.json file, which will make it easier to deploy this project to Vercel. Check the video listed in the cohort repository for a walkthrough of how to connect your deployed Express server to Neon Postgres.
+Private - All Rights Reserved
+
+---
+
+**Built for SKAIZ Portfolio Website 🎨**
